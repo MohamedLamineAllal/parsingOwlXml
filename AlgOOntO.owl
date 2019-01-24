@@ -1,0 +1,887 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.owl-ontologies.com/AlgoOnto.owl#"
+     xml:base="http://www.owl-ontologies.com/AlgoOnto.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Compose -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Compose">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#ComposedOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#ComposedOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Compose"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#HasCategorie -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#HasCategorie">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Categorie"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Data"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsCategorieOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#HasRepresentation -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#HasRepresentation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Representaion"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#HasType -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#HasType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Data"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Traitement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#IsCategorieOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#IsCategorieOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Categorie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Data"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#IsStructureOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#IsStructureOf">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#IsTypeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#IsTypeOf">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Size -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Size">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Maximizable</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">NonMaximizable</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#contents -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#contents">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Heterogeneous</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Homogeneous</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Addition -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Addition">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Arraye -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Arraye">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Representaion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Assignation -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Assignation">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Binairy -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Binairy">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Tree"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#N-airy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Boolean -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Boolean">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Char"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Integer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Real"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Categorie -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Categorie"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Char -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Char">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Integer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Real"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Chr -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Chr">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Integer"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Integer"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Data"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#ComposedOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#ComposedOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Constant -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Constant">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Categorie"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Variable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Data -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Data">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasCategorie"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Categorie"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#DataType -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Div -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Div">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Integer"/>
+                                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Real"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Integer"/>
+                                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Real"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Division -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Division">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#G_Task -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#G_Task">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Task"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Graph"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#L_Task"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#S_Task"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#T_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Graph -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Graph">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#List"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Set"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Tree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Initialisation -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Initialisation">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Assignation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Integer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Integer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Real"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#L_Task -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#L_Task">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Task"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#List"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#List"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#S_Task"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#T_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#List -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#List">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Set"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Tree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Modulo -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Modulo">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Multplication -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Multplication">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#N-airy -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#N-airy">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Tree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Object -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Data"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Operation -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Operation">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Traitement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Ord -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Ord">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Char"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Object"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasType"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Char"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Queue -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Queue">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#contiguous"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Stack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Real -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Real">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#DataType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Record -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Record">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Representaion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Representaion -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Representaion"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#S_Task -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#S_Task">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Task"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Graph"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Graph"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#T_Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Set -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Set">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Tree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Soustraction -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Soustraction">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Stack -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Stack">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#contiguous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Structure -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Structure">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasRepresentation"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Representaion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#T_Task -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#T_Task">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Task"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Graph"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#HasStructure"/>
+                                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Graph"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Task -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Task">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Traitement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#IsApplied"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#CollectionObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Test -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Test">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Operation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Traitement -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Traitement"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Tree -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Tree">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Structure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#Variable -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#Variable">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Categorie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#chained -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#chained">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#List"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#contiguous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#contiguous -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#contiguous">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#List"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/AlgoOnto.owl#pointer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/AlgoOnto.owl#pointer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/AlgoOnto.owl#Representaion"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Parse</title>
+    </head>
+
+    <body>
+        <input type="file" id="selectFile" multiple>
+
+        <div id="output">
+
+        </div>
+
+        <div id="retrievedNumber"></div>
+
+        <script src="./parseOwl.js"></script>
+        <!--dependency-->
+        <script>
+            var retrivedNumber = document.getElementById('retrievedNumber');
+
+            // Demonstration
+            // class inplementing all functionalities (file input or an array of inputs, one or multiple output dom els, parsing on file select, multiple options, a methods for parsing and another for rendering)
+            var parseOwlInput = new ParseOwl.ParseOwlInput({
+                fileInputs: "#selectFile", // a string or dom el or an array of dom els or id's
+                outputDom: "#output", // same dom el, arrays of dom els or id's
+                //overrideMode: false, // inner list concat at each new parsing (default true override each time)
+
+                // !! this to set your own render Function
+                // renderOverride: function (list, outputDom) {
+
+                // }
+                // this callback get called at fileProccessing End !!
+                onFileProccessEnd: function (list, text, outputDoms) {
+                    console.log('hi');
+                    // this =>  is the instance ref
+                    retrivedNumber.innerHTML = 'total extracted: ' + this.list.length; // look how we use this (this is a ref to the created object)
+                }
+            });
+
+            // to access the inner list => parseOwlInput.list (it's public)
+
+            // that's all needed alone !!! but
+            // here is some method
+            //parseOwlInput.renderList() // => can be used to render the inner list to any dom or collection of dom
+            //parseOwlInput.parseOwl(text, override); // parse and update the list (concat or reset) /// !!! note in case of concatenation (not overrideMode) the returned result isn't the result of the new state of this.list, but just the list that was extracted in the last operation.
+            // parseOwlInput.resetList(); // => reset the list to []
+
+            //***
+            // here the just parsing function (support owl, xml, and even other file format (i used regex))
+            // ParseOwl.parseOwl(text);
+        </script>
+    </body>
+
+</html>
